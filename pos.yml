@@ -1,0 +1,18 @@
+version: "2.3"
+services:
+  postgresql:
+    image: timescale/timescaledb-postgis:latest-pg11
+    ports:
+      - 5432:5432
+    container_name: postgresql
+    environment:
+      TZ: "Asia/Ho_Chi_Minh"
+      POSTGRES_PASSWORD: c72de94716593dad4acb912774ca890a1c43eb76
+      POSTGRES_USER: newai_admin
+      POSTGRES_DB: postgres
+      PGDATA: "/var/lib/postgresql/data/data"
+    volumes:
+      - pg_data:/var/lib/postgresql/data/data
+
+volumes:
+  pg_data:
